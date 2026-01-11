@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -30,7 +30,7 @@ export default function App() {
   }, [userRole]);
 
   return (
-    <BrowserRouter basename="/Disaster_Management_system">
+    <HashRouter>
       <Routes>
         <Route path="/login" element={
           !userRole ? <Login onLogin={setUserRole} /> : <Navigate to="/dashboard" replace />
@@ -58,6 +58,6 @@ export default function App() {
           userRole ? <VolunteerTasks userRole={userRole} /> : <Navigate to="/login" />
         } />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
