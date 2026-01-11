@@ -30,7 +30,7 @@ export default function App() {
   }, [userRole]);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Disaster_Management_system">
       <Routes>
         <Route path="/login" element={
           !userRole ? <Login onLogin={setUserRole} /> : <Navigate to="/dashboard" replace />
